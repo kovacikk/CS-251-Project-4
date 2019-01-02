@@ -1,0 +1,4 @@
+unrelated
+Alex Mary
+George is a descendant of Alex
+Ania is a descendant of Mary

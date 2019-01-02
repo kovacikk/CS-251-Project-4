@@ -1,0 +1,6 @@
+fred Mary    george betty
+Henry   martha Robert jane
+george jane   tyler too
+ Robert   betty edna    bill
+           fred             edna                                mildred
+ Robert Mary jenny
