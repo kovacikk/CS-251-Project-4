@@ -1,8 +1,11 @@
-import org.w3c.dom.*;
+/*
+*  Kyle Kovacik
+*  Generates Family Trees from input files
+*  Answers Queries Using Created Trees
+*
+*/
 
-//import javax.xml.soap.Node;
-//import javax.xml.soap.SOAPElement;
-//import javax.xml.soap.SOAPException;
+import org.w3c.dom.*;
 import java.io.*;
 import java.util.Scanner;
 
@@ -71,7 +74,6 @@ public class FamilyTree {
         while(scan.hasNext()) {
             String nextLine = scan.nextLine();
             Scanner scanLine = new Scanner(nextLine);
-            //System.out.println(nextLine);
 
             Node father = new Node("unknown");
             Node mother = new Node("unknown");
@@ -87,7 +89,6 @@ public class FamilyTree {
                         nodes[size] = father;
                         size++;
                     }
-                    //System.out.printf("Added father: %s\n", father.name);
                 }
                 else if (i == 1) {
                     mother.name = scanLine.next();
@@ -99,7 +100,6 @@ public class FamilyTree {
                         nodes[size] = mother;
                         size++;
                     }
-                    //System.out.printf("Added mother: %s\n", mother.name);
 
                 }
                 else {
@@ -119,11 +119,8 @@ public class FamilyTree {
                     father.childrenSize++;
                     mother.children[mother.childrenSize] = child;
                     mother.childrenSize++;
-                    //System.out.printf("Added child: %s\n", child.name);
-                    //System.out.printf("with father: %s and mother: %s\n", child.father.name, child.mother.name);
                 }
             }
-            //System.out.println();
         }
     }
 
@@ -174,7 +171,6 @@ public class FamilyTree {
         }
 
         for (int i = 0; i < counter; i++) {
-            //System.out.printf("Name0: %s, Name1: %s\n", name0[i], name1[i]);
             startNode = nodes[nodeExists(name0[i])];
             sendOutput.write(search2(name0[i], name1[i]));
             sendOutput.flush();
@@ -215,11 +211,7 @@ public class FamilyTree {
                     return name0 + " is a descendant of " + name1 + "\n";
                 }
             }
-            /**System.out.println(name0 + "|" + name1);
-            for (int i = 0; i < commonSize; i++) {
-                System.out.println(common[i] + ": " + nodes[nodeExists(common[i])].distance0 +"|" + nodes[nodeExists(common[i])].distance1);
-            }*/
-
+            
             String[] shavedCommon = new String[commonSize];
             int shavedCommonSize = 0;
 
@@ -285,7 +277,7 @@ public class FamilyTree {
         Node nameNode = nodes[nodeExists(name)];
 
         if (number == 0) {
-            int count = distance0; //Need to add and decrease when going back a level to mother
+            int count = distance0;
             nameNode.distance0 = count;
             distance0++;
 
